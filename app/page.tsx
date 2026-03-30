@@ -1,5 +1,6 @@
 import Image from "next/image";
 import jonathanPhoto from "./assets/jonathan-pic.jpg";
+import ProjectsDisclosure from "./components/ProjectsDisclosure";
 
 const projectGroups = [
   {
@@ -339,37 +340,7 @@ export default function Home() {
       </section>
 
       <section className="section projects-section" id="projects">
-        <details className="projects-disclosure">
-          <summary className="projects-disclosure-summary">
-            <div>
-              <p className="section-kicker">Project archive</p>
-              <h2>All project references.</h2>
-            </div>
-            <div className="projects-disclosure-side">
-              <p className="projects-note">Click to expand the full project list.</p>
-              <span className="projects-disclosure-icon" aria-hidden="true"></span>
-            </div>
-          </summary>
-
-          <div className="projects-disclosure-panel">`r`n            <div className="projects-disclosure-panel-inner">`r`n              <div className="project-archive">
-              {projectGroups.map((group) => (
-                <article className="project-archive-row" key={group.company}>
-                  <div className="project-archive-meta">
-                    <p className="project-type">{group.period}</p>
-                    <h3>{group.company}</h3>
-                    <p className="project-archive-role">{group.role}</p>
-                    <p className="project-archive-count">{group.projects.length} projects</p>
-                  </div>
-                  <div className="project-archive-list">
-                    {group.projects.map((project) => (
-                      <div className="project-archive-item" key={project}>
-                        {project}
-                      </div>
-                    ))}
-                  </div>
-                </article>
-              ))}
-            </div>`r`n            </div>`r`n          </div>`r`n        </details>
+        <ProjectsDisclosure groups={projectGroups} />
       </section>
 
       <section className="section credentials-section" id="credentials">
@@ -441,4 +412,6 @@ export default function Home() {
     </main>
   );
 }
+
+
 
